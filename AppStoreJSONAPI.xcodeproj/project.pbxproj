@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		F9597710291681A3005347B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959770F291681A3005347B8 /* AppDelegate.swift */; };
 		F9597712291681A3005347B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9597711291681A3005347B8 /* SceneDelegate.swift */; };
-		F9597714291681A3005347B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9597713291681A3005347B8 /* ViewController.swift */; };
-		F9597717291681A3005347B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9597715291681A3005347B8 /* Main.storyboard */; };
 		F9597719291681A4005347B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9597718291681A4005347B8 /* Assets.xcassets */; };
 		F959771C291681A4005347B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F959771A291681A4005347B8 /* LaunchScreen.storyboard */; };
 		F9597727291681A5005347B8 /* AppStoreJSONAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9597726291681A5005347B8 /* AppStoreJSONAPITests.swift */; };
 		F9597731291681A5005347B8 /* AppStoreJSONAPIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9597730291681A5005347B8 /* AppStoreJSONAPIUITests.swift */; };
 		F9597733291681A5005347B8 /* AppStoreJSONAPIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9597732291681A5005347B8 /* AppStoreJSONAPIUITestsLaunchTests.swift */; };
+		F9597740291684E5005347B8 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959773F291684E5005347B8 /* BaseTabBarController.swift */; };
+		F959774229168DA7005347B8 /* AppsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959774129168DA7005347B8 /* AppsSearchViewController.swift */; };
+		F95977462916922F005347B8 /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95977452916922F005347B8 /* SearchResultCollectionViewCell.swift */; };
+		F9597749291697B7005347B8 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9597748291697B7005347B8 /* UIView+Layout.swift */; };
+		F959774B2916A565005347B8 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959774A2916A565005347B8 /* VerticalStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +42,6 @@
 		F959770C291681A3005347B8 /* AppStoreJSONAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreJSONAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F959770F291681A3005347B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9597711291681A3005347B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F9597713291681A3005347B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F9597716291681A3005347B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9597718291681A4005347B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F959771B291681A4005347B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F959771D291681A4005347B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +50,11 @@
 		F959772C291681A5005347B8 /* AppStoreJSONAPIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStoreJSONAPIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9597730291681A5005347B8 /* AppStoreJSONAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreJSONAPIUITests.swift; sourceTree = "<group>"; };
 		F9597732291681A5005347B8 /* AppStoreJSONAPIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreJSONAPIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F959773F291684E5005347B8 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		F959774129168DA7005347B8 /* AppsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchViewController.swift; sourceTree = "<group>"; };
+		F95977452916922F005347B8 /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		F9597748291697B7005347B8 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		F959774A2916A565005347B8 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +107,9 @@
 			children = (
 				F959770F291681A3005347B8 /* AppDelegate.swift */,
 				F9597711291681A3005347B8 /* SceneDelegate.swift */,
-				F9597713291681A3005347B8 /* ViewController.swift */,
-				F9597715291681A3005347B8 /* Main.storyboard */,
+				F959774729169791005347B8 /* Helpers */,
+				F959774429169219005347B8 /* View */,
+				F959774329168DAB005347B8 /* Controller */,
 				F9597718291681A4005347B8 /* Assets.xcassets */,
 				F959771A291681A4005347B8 /* LaunchScreen.storyboard */,
 				F959771D291681A4005347B8 /* Info.plist */,
@@ -125,6 +132,32 @@
 				F9597732291681A5005347B8 /* AppStoreJSONAPIUITestsLaunchTests.swift */,
 			);
 			path = AppStoreJSONAPIUITests;
+			sourceTree = "<group>";
+		};
+		F959774329168DAB005347B8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F959773F291684E5005347B8 /* BaseTabBarController.swift */,
+				F959774129168DA7005347B8 /* AppsSearchViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F959774429169219005347B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F95977452916922F005347B8 /* SearchResultCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F959774729169791005347B8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F9597748291697B7005347B8 /* UIView+Layout.swift */,
+				F959774A2916A565005347B8 /* VerticalStackView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +266,6 @@
 			files = (
 				F959771C291681A4005347B8 /* LaunchScreen.storyboard in Resources */,
 				F9597719291681A4005347B8 /* Assets.xcassets in Resources */,
-				F9597717291681A3005347B8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9597714291681A3005347B8 /* ViewController.swift in Sources */,
+				F9597740291684E5005347B8 /* BaseTabBarController.swift in Sources */,
 				F9597710291681A3005347B8 /* AppDelegate.swift in Sources */,
+				F9597749291697B7005347B8 /* UIView+Layout.swift in Sources */,
+				F959774229168DA7005347B8 /* AppsSearchViewController.swift in Sources */,
 				F9597712291681A3005347B8 /* SceneDelegate.swift in Sources */,
+				F95977462916922F005347B8 /* SearchResultCollectionViewCell.swift in Sources */,
+				F959774B2916A565005347B8 /* VerticalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +333,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F9597715291681A3005347B8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F9597716291681A3005347B8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F959771A291681A4005347B8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,7 +470,6 @@
 				INFOPLIST_FILE = AppStoreJSONAPI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +497,6 @@
 				INFOPLIST_FILE = AppStoreJSONAPI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
