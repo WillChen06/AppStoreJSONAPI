@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AppsHeaderHorizontalController: BaseListController {
     let cellId = "AppsHeaderHorizontalCell"
+    var socialApps: [SocialApp] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(AppsHeaderCell.self, forCellWithReuseIdentifier: cellId)
@@ -19,11 +22,15 @@ class AppsHeaderHorizontalController: BaseListController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+        socialApps.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsHeaderCell
+        let app = self.socialApps[indexPath.item]
+        cell.companyLabel.text = app.name
+        cell.titleLabel.text = app.tagline
+        cell.imageView.kf.setImage(with: URL(string: app.imageUrl))
         return cell
     }
 }

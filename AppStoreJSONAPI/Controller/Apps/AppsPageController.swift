@@ -11,16 +11,57 @@ class AppsPageController: BaseListController {
     let cellId = "AppsCollectionCell"
     let headerId = "AppsHeaderCell"
     
+    var groups: [AppGroup] = []
+    let urls: [String] = [
+        "https://rss.applemarketingtools.com/api/v2/jp/apps/top-free/50/apps.json",
+        "https://rss.applemarketingtools.com/api/v2/jp/apps/top-paid/50/apps.json",
+        "https://rss.applemarketingtools.com/api/v2/tw/apps/top-free/50/apps.json",
+        //"https://rss.applemarketingtools.com/api/v2/tw/apps/top-paid/50/apps.json"
+    ]
+    
+    var socailApps: [SocialApp] = []
+    
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let aiv = UIActivityIndicatorView(style: .large)
+        aiv.color = .black
+        aiv.startAnimating()
+        aiv.hidesWhenStopped = true
+        return aiv
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupViews()
+        fetchData()
+    }
+    
+    private func setupViews() {
         collectionView.register(AppsGroupCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
         collectionView.register(AppsPageHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.fillSuperview()
+    }
+    
+    private func fetchData() {
+        Task {
+            async let fetchGroups = Service.shared.fetchAppsGroup(from: urls)
+            async let fetchSocailApps = Service.shared.fetchSocialApps()
+            
+            self.groups = await fetchGroups
+            self.socailApps = await fetchSocailApps
+             
+            Task.detached { @MainActor in
+                self.activityIndicatorView.stopAnimating()
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! AppsPageHeader
+        header.appHeaderHorizontalController.socialApps = self.socailApps
+        header.appHeaderHorizontalController.collectionView.reloadData()
         return header
     }
     
@@ -29,11 +70,18 @@ class AppsPageController: BaseListController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        groups.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCollectionViewCell
+        
+        let appGroup = groups[indexPath.item]
+        
+        
+        cell.titleLabel.text = appGroup.feed.title
+        cell.horizontalController.appGroup = appGroup
+        cell.horizontalController.collectionView.reloadData()
         return cell
     }
 }
