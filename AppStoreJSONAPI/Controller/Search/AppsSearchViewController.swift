@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class AppsSearchViewController: UICollectionViewController {
+class AppsSearchViewController: BaseListController {
     
     private let cellId = "AppsSearchCell"
     
@@ -68,14 +68,6 @@ class AppsSearchViewController: UICollectionViewController {
         let appResult = appResults[indexPath.item]
         cell.appResult = appResult
         return cell
-    }
-    
-    init() {
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 
