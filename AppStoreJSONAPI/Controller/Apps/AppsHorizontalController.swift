@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class AppsHorizontalController: BaseListController {
+class AppsHorizontalController: HorizontalSnappingController {
     let cellId = "AppsHorizontalCell"
     let topBottomPadding: CGFloat = 12
     let lineSpacing: CGFloat = 10
@@ -18,10 +18,7 @@ class AppsHorizontalController: BaseListController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(AppRowCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
-        
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
+        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -50,6 +47,6 @@ extension AppsHorizontalController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        UIEdgeInsets(top: topBottomPadding, left: 16, bottom: topBottomPadding, right: 16)
+        UIEdgeInsets(top: topBottomPadding, left: 0, bottom: topBottomPadding, right: 0)
     }
 }
