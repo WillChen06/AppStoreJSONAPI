@@ -69,6 +69,12 @@ class AppsSearchViewController: BaseListController {
         cell.appResult = appResult
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let appId = appResults[indexPath.item].trackId
+        let appDetailController = AppDetailController(appId: String(appId))
+        navigationController?.pushViewController(appDetailController, animated: true)
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

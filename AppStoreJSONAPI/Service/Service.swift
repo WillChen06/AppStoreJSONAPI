@@ -16,6 +16,11 @@ class Service {
         return await fetchGenericJSONData(urlString: urlString)
     }
     
+    func fetchApp(by id: String) async -> SearchResult? {
+        let urlString = "https://itunes.apple.com/lookup?id=\(id)"
+        return await fetchGenericJSONData(urlString: urlString)
+    }
+    
     // MARK: - Apps
     func fetchAppsGroup(from urls: [String]) async -> [AppGroup] {
         await withTaskGroup(of: (index: Int, group: AppGroup?).self, returning: [AppGroup].self) { taskGroup in
@@ -38,6 +43,12 @@ class Service {
         return await fetchGenericJSONData(urlString: urlString) ?? []
     }
     
+    // AppDetail
+    func fetchAppReviews(appId: String) async -> Reviews? {
+        let urlString = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId)/sortby=mostrecent/json?l=jp&cc=jp"
+        return await fetchGenericJSONData(urlString: urlString)
+    }
+    
     private func fetchGenericJSONData<T: Decodable>(urlString: String) async -> T? {
         guard let url = URL(string: urlString) else { return T?.none }
         do {
@@ -46,7 +57,7 @@ class Service {
             let result = try JSONDecoder().decode(T.self, from: data)
             return result
         } catch {
-            print("Error: \(error.localizedDescription)")
+            print("Fetch API Error: \(error.localizedDescription)")
             return T?.none
         }
     }

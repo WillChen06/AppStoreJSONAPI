@@ -82,7 +82,18 @@ class AppsPageController: BaseListController {
         cell.titleLabel.text = appGroup.feed.title
         cell.horizontalController.appGroup = appGroup
         cell.horizontalController.collectionView.reloadData()
+        cell.horizontalController.didSelectHandler = {[weak self] feed in
+            let detailController = AppDetailController(appId: feed.id)
+            detailController.navigationItem.title = feed.name
+            self?.navigationController?.pushViewController(detailController, animated: true)
+        }
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let redController = UIViewController()
+        redController.view.backgroundColor = .red
+        navigationController?.pushViewController(redController, animated: true)
     }
 }
 
