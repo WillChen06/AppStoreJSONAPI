@@ -46,3 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension UIApplication {
+    public var keyWindow: UIWindow? {
+        UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? [] }.first { $0.isKeyWindow }
+    }
+    
+    public var statusBarFrame: CGRect {
+        keyWindow?.windowScene?.statusBarManager?.statusBarFrame ?? .zero
+    }
+}
