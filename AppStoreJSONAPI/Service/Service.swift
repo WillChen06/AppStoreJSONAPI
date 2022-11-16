@@ -22,6 +22,16 @@ class Service {
     }
     
     // MARK: - Apps
+    func fetchTopFree() async -> AppGroup? {
+        let urlString = "https://rss.applemarketingtools.com/api/v2/jp/apps/top-free/10/apps.json"
+        return await fetchGenericJSONData(urlString: urlString)
+    }
+    
+    func fetchTopPaid() async -> AppGroup? {
+        let urlString = "https://rss.applemarketingtools.com/api/v2/jp/apps/top-paid/10/apps.json"
+        return await fetchGenericJSONData(urlString: urlString)
+    }
+    
     func fetchAppsGroup(from urls: [String]) async -> [AppGroup] {
         await withTaskGroup(of: (index: Int, group: AppGroup?).self, returning: [AppGroup].self) { taskGroup in
             for (i, url) in urls.enumerated() {

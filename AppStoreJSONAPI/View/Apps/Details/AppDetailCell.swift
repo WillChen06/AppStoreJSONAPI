@@ -22,7 +22,7 @@ class AppDetailCell: UICollectionViewCell {
     
     let nameLabel = UILabel(text: "App Name", font: .boldSystemFont(ofSize: 24))
     
-    let priceButton = UIButton(title: "$")
+    let priceButton = UIButton(title: "")
     
     let whatsNewLabel = UILabel(text: "What's New", font: .boldSystemFont(ofSize: 20))
     

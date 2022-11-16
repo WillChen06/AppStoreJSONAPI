@@ -52,7 +52,7 @@ class AppFullscreenController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        indexPath.row == 0 ? 450 : super.tableView(tableView, heightForRowAt: indexPath)
+        indexPath.row == 0 ? TodayController.cellSize : super.tableView(tableView, heightForRowAt: indexPath)
     }
     
     @objc func dismissFullscreen(_ sender: UIButton) {
