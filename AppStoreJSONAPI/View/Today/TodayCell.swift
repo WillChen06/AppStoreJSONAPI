@@ -15,6 +15,7 @@ class TodayCell: BaseTodayCell {
             imageView.image = todayItem.image
             descriptionLabel.text = todayItem.description
             backgroundColor = todayItem.backgroundColor
+            backgroundView?.backgroundColor = todayItem.backgroundColor
         }
     }
     
@@ -31,12 +32,13 @@ class TodayCell: BaseTodayCell {
     }
     
     private func setupViews() {
+        backgroundColor = .white
         layer.cornerRadius = 16
-        clipsToBounds = true
         
         addSubview(imageView)
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 16
+        imageView.clipsToBounds = true
         
         let imageContainerView = UIView()
         imageContainerView.addSubview(imageView)
