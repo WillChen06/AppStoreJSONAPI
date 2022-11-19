@@ -46,6 +46,7 @@ class AppFullscreenController: UITableViewController {
             cell.todayCell.todayItem = todayItem
             cell.todayCell.layer.cornerRadius = 0
             cell.clipsToBounds = true
+            cell.todayCell.backgroundView = nil
             return cell
         }
         let cell = AppFullscreenDescriptionCell()
@@ -59,5 +60,12 @@ class AppFullscreenController: UITableViewController {
     @objc func dismissFullscreen(_ sender: UIButton) {
         sender.isHidden = true
         dismissClosure?()
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y < 0 {
+            scrollView.isScrollEnabled = false
+            scrollView.isScrollEnabled = true
+        }
     }
 }
