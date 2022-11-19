@@ -7,7 +7,16 @@
 
 import UIKit
 
-class AppFullscreenController: UITableViewController {
+class AppFullscreenController: UIViewController {
+    let tableView = UITableView(frame: .zero, style: .plain)
+    
+    let closeButton: UIButton = {
+        let button = UIButton(type: .system)
+        let configuration = UIImage.SymbolConfiguration(weight: .heavy)
+        button.setImage(UIImage(systemName: "xmark.circle.fill", withConfiguration: configuration), for: .normal)
+        return button
+    }()
+    
     var dismissClosure: (() -> Void)?
     
     var todayItem: TodayItem?
@@ -23,26 +32,45 @@ class AppFullscreenController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
+    }
+    
+    private func setupViews() {
+        view.clipsToBounds = true
         
+        tableView.dataSource = self
+        tableView.delegate = self
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.contentInsetAdjustmentBehavior = .never
-        
         let statusBarFrame = UIApplication.shared.statusBarFrame
         tableView.contentInset = .init(top: 0, left: 0, bottom: statusBarFrame.height, right: 0)
+        
+        view.addSubview(tableView)
+        tableView.fillSuperview()
+        
+        view.addSubview(closeButton)
+        closeButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 12, left: 0, bottom: 0, right: 0), size: .init(width: 80, height: 40))
+        closeButton.addTarget(self, action: #selector(dismissFullscreen), for: .touchUpInside)
     }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+    @objc func dismissFullscreen(_ sender: UIButton) {
+        sender.isHidden = true
+        dismissClosure?()
+    }
+}
+
+// MARK: - UITableView DataSource & Delegate
+extension AppFullscreenController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         2
     }
     
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
             let cell = AppFullscreenHeaderCell()
-            cell.closeButton.addTarget(self, action: #selector(dismissFullscreen(_:)), for: .touchUpInside)
             cell.todayCell.todayItem = todayItem
             cell.todayCell.layer.cornerRadius = 0
             cell.clipsToBounds = true
@@ -53,16 +81,11 @@ class AppFullscreenController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        indexPath.row == 0 ? TodayController.cellSize : super.tableView(tableView, heightForRowAt: indexPath)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        indexPath.row == 0 ? TodayController.cellSize : UITableView.automaticDimension
     }
     
-    @objc func dismissFullscreen(_ sender: UIButton) {
-        sender.isHidden = true
-        dismissClosure?()
-    }
-    
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y < 0 {
             scrollView.isScrollEnabled = false
             scrollView.isScrollEnabled = true
