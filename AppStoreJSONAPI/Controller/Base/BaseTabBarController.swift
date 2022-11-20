@@ -12,10 +12,12 @@ class BaseTabBarController: UITabBarController {
         case today = "doc.text.image"
         case apps = "square.stack.3d.up.fill"
         case search = "magnifyingglass"
+        case music = "music.note"
     }
         
     override func viewDidLoad() {        
         viewControllers = [
+            createNavController(viewController: MusicController(), title: "Music", icon: .music),
             createNavController(viewController: TodayController(), title: "Today", icon: .today),
             createNavController(viewController: AppsPageController(), title: "Apps", icon: .apps),
             createNavController(viewController: AppsSearchViewController(), title: "Search", icon: .search)

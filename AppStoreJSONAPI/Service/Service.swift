@@ -21,6 +21,11 @@ class Service {
         return await fetchGenericJSONData(urlString: urlString)
     }
     
+    func fecthMusicWithOffset(searchTerm: String, offset: Int, limit: Int = 20) async -> SearchResult? {
+        let urlString = "https://itunes.apple.com/search?term=\(searchTerm)&offset=\(offset)&limit=\(limit)"
+        return await fetchGenericJSONData(urlString: urlString)
+    }
+    
     // MARK: - Apps
     func fetchTopFree() async -> AppGroup? {
         let urlString = "https://rss.applemarketingtools.com/api/v2/jp/apps/top-free/10/apps.json"

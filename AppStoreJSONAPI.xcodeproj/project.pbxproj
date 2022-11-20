@@ -29,6 +29,9 @@
 		F92AD1F32923C2DB0098A8EA /* MultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92AD1F22923C2DB0098A8EA /* MultipleAppCell.swift */; };
 		F92AD1F52923E4A80098A8EA /* BackEnableNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92AD1F42923E4A80098A8EA /* BackEnableNavigationController.swift */; };
 		F92AD1F929291F780098A8EA /* FloatingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92AD1F829291F770098A8EA /* FloatingContainerView.swift */; };
+		F92AD1FC2929B07B0098A8EA /* MusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92AD1FB2929B07B0098A8EA /* MusicController.swift */; };
+		F92AD1FF2929B1580098A8EA /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92AD1FE2929B1580098A8EA /* TrackCell.swift */; };
+		F92AD2012929B2EA0098A8EA /* MusicLoadingFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92AD2002929B2EA0098A8EA /* MusicLoadingFooter.swift */; };
 		F9597710291681A3005347B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959770F291681A3005347B8 /* AppDelegate.swift */; };
 		F9597712291681A3005347B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9597711291681A3005347B8 /* SceneDelegate.swift */; };
 		F9597719291681A4005347B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9597718291681A4005347B8 /* Assets.xcassets */; };
@@ -97,6 +100,9 @@
 		F92AD1F22923C2DB0098A8EA /* MultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleAppCell.swift; sourceTree = "<group>"; };
 		F92AD1F42923E4A80098A8EA /* BackEnableNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackEnableNavigationController.swift; sourceTree = "<group>"; };
 		F92AD1F829291F770098A8EA /* FloatingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingContainerView.swift; sourceTree = "<group>"; };
+		F92AD1FB2929B07B0098A8EA /* MusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicController.swift; sourceTree = "<group>"; };
+		F92AD1FE2929B1580098A8EA /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		F92AD2002929B2EA0098A8EA /* MusicLoadingFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicLoadingFooter.swift; sourceTree = "<group>"; };
 		F959770C291681A3005347B8 /* AppStoreJSONAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreJSONAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F959770F291681A3005347B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9597711291681A3005347B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +206,23 @@
 			path = Today;
 			sourceTree = "<group>";
 		};
+		F92AD1FA2929B06E0098A8EA /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				F92AD1FB2929B07B0098A8EA /* MusicController.swift */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		F92AD1FD2929B1450098A8EA /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				F92AD1FE2929B1580098A8EA /* TrackCell.swift */,
+				F92AD2002929B2EA0098A8EA /* MusicLoadingFooter.swift */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		F9597703291681A3005347B8 = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +280,7 @@
 		F959774329168DAB005347B8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F92AD1FA2929B06E0098A8EA /* Music */,
 				F959775D291792A3005347B8 /* Base */,
 				F92AD18A291FC3760098A8EA /* Today */,
 				F959775C29179299005347B8 /* Apps */,
@@ -268,6 +292,7 @@
 		F959774429169219005347B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F92AD1FD2929B1450098A8EA /* Music */,
 				F92AD18D291FC4060098A8EA /* Today */,
 				F9597762291793A2005347B8 /* Search */,
 				F95977612917939D005347B8 /* Apps */,
@@ -500,6 +525,7 @@
 				F95977762917D561005347B8 /* SocialApp.swift in Sources */,
 				F959774E2916AB1F005347B8 /* SearchResult.swift in Sources */,
 				F92AD1F929291F780098A8EA /* FloatingContainerView.swift in Sources */,
+				F92AD2012929B2EA0098A8EA /* MusicLoadingFooter.swift in Sources */,
 				F95977742917ABED005347B8 /* AppGroup.swift in Sources */,
 				F9597759291791BD005347B8 /* AppsPageController.swift in Sources */,
 				F95977702917A573005347B8 /* AppsHeaderCell.swift in Sources */,
@@ -515,8 +541,10 @@
 				F95977502916B02E005347B8 /* Service.swift in Sources */,
 				F92AD197292084420098A8EA /* TodayItem.swift in Sources */,
 				F95977602917937F005347B8 /* AppsGroupCollectionViewCell.swift in Sources */,
+				F92AD1FC2929B07B0098A8EA /* MusicController.swift in Sources */,
 				F92AD193291FE0BA0098A8EA /* AppFullscreenDescriptionCell.swift in Sources */,
 				F90F495E291BECC500FC760D /* AppDetailController.swift in Sources */,
+				F92AD1FF2929B1580098A8EA /* TrackCell.swift in Sources */,
 				F959776A2917A216005347B8 /* AppsPageHeader.swift in Sources */,
 				F90F4963291CDCE500FC760D /* PreviewCell.swift in Sources */,
 				F90F4969291CE53B00FC760D /* ReviewsController.swift in Sources */,

@@ -111,13 +111,13 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         ratingsLabel.text = "Rating: \(appResult.averageUserRating ?? 0)"
         appIconImageView.kf.setImage(with: URL(string: appResult.artworkUrl100))
         
-        screenshotImageView.kf.setImage(with: URL(string: appResult.screenshotUrls[0]))
-        if appResult.screenshotUrls.count > 1 {
-            screenshot2ImageView.kf.setImage(with: URL(string: appResult.screenshotUrls[1]))
+        screenshotImageView.kf.setImage(with: URL(string: appResult.screenshotUrls![0]))
+        if appResult.screenshotUrls!.count > 1 {
+            screenshot2ImageView.kf.setImage(with: URL(string: appResult.screenshotUrls![1]))
         }
         
-        if appResult.screenshotUrls.count > 2 {
-            screenshot3ImageView.kf.setImage(with: URL(string: appResult.screenshotUrls[2]))
+        if appResult.screenshotUrls!.count > 2 {
+            screenshot3ImageView.kf.setImage(with: URL(string: appResult.screenshotUrls![2]))
         }
     }
 }
