@@ -8,6 +8,14 @@
 import UIKit
 
 class AppsHeaderCell: UICollectionViewCell {
+    var app: SocialApp! {
+        didSet {
+            companyLabel.text = app.name
+            titleLabel.text = app.tagline
+            imageView.kf.setImage(with: URL(string: app.imageUrl))
+        }
+    }
+    
     let companyLabel = UILabel(text: "Facebook", font: .boldSystemFont(ofSize: 12))
     
     let titleLabel = UILabel(text: "Keeping up with friends is faster than ever", font: .systemFont(ofSize: 24))

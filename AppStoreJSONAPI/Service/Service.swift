@@ -37,6 +37,11 @@ class Service {
         return await fetchGenericJSONData(urlString: urlString)
     }
     
+    func fetchTWTopFree() async -> AppGroup? {
+        let urlString = "https://rss.applemarketingtools.com/api/v2/tw/apps/top-free/50/apps.json"
+        return await fetchGenericJSONData(urlString: urlString)
+    }
+    
     func fetchAppsGroup(from urls: [String]) async -> [AppGroup] {
         await withTaskGroup(of: (index: Int, group: AppGroup?).self, returning: [AppGroup].self) { taskGroup in
             for (i, url) in urls.enumerated() {
